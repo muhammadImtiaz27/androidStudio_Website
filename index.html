@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malaysia Tourism</title>
+
+    <!-- Font Family -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- My css styling -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Leaflet css -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <!-- Leaflet cdn -->
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <!-- Its important to include your script.js file after including the leaflet cdn The script.js is where we will use the leaflet library By the time script.js is loaded, the browser must already have downloaded Leaflet library because otherwise our code will not be able to work without library. -->
+
+    <!-- My javascript script file -->
+    <script defer type="module" src="script.js"></script>
+
+    <!-- <script type="module">
+      
+    </script> -->
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <label class="form__label">Search Tourist Spot (Name)</label>
+      <input
+        text="text"
+        id="input_tourist_spot_name"
+        class="form__input"
+        placeholder="Tourist Spot Name"
+        enterkeyhint="Search"
+      />
+
+      <label class="form__label">Filter State</label>
+      <select id="dropdown_menu" class="form__input">
+        <option value="All">All</option>
+        <option value="Johor">Johor</option>
+        <option value="Kedah">Kedah</option>
+        <option value="Kelantan">Kelantan</option>
+        <option value="Melaka">Melaka</option>
+        <option value="Negeri Sembilan">Negeri Sembilan</option>
+        <option value="Perak">Perak</option>
+        <option value="Perlis">Perlis</option>
+        <option value="Pahang">Pahang</option>
+        <option value="Pulau Pinang">Pulau Pinang</option>
+        <option value="Sabah">Sabah</option>
+        <option value="Sarawak">Sarawak</option>
+        <option value="Selangor">Selangor</option>
+        <option value="Terengganu">Terengganu</option>
+      </select>
+
+      <ul class="details"></ul>
+    </div>
+
+    <div id="map">
+      <button class="btn_change_map_style">Change Map Style</button>
+    </div>
+
+    <!-- Modal structure -->
+    <div class="modal-overlay" id="myModal">
+      <div class="modal-content">
+        <span class="modal-close-button" id="closeModal">&times;</span>
+        <h2 class="modal-title">Select Map Style</h2>
+
+        <p class="modal-subtitle">Open Street Map (Standard)</p>
+        <img
+          id="img_OpenStreetMap_standard"
+          src="open_street_map_standard.png"
+          class="modal-img"
+        />
+
+        <p class="modal-subtitle">Open TopoMap (Topographic)</p>
+        <img id="img_OpenTopoMap" src="open_topo_map.png" class="modal-img" />
+
+        <p class="modal-subtitle">Esri Satellite</p>
+        <img
+          id="img_EsriSatellite"
+          src="esri_satellite_map.png"
+          class="modal-img"
+        />
+      </div>
+    </div>
+  </body>
+</html>

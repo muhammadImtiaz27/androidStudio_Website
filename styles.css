@@ -1,0 +1,363 @@
+:root {
+  --color-yellow: #ffb545;
+  --color-green: #00c46a;
+  --color-red: #ff0000;
+
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: rgb(214, 222, 224);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+  overscroll-behavior-y: none;
+  background-color: #fff;
+  padding: 2.5rem;
+  display: flex;
+}
+
+/* GENERAL */
+a:link,
+a:visited {
+  color: var(--color-brand--1);
+}
+
+/* SIDEBAR */
+.sidebar {
+  flex-basis: 50rem;
+  background-color: var(--color-dark--1);
+  padding: 3rem 5rem 4rem 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* workouts */
+.details {
+  list-style: none;
+  height: 60vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* .details::-webkit-scrollbar {
+    width: 0;
+} */
+
+/* width */
+.details::-webkit-scrollbar {
+  width: 1rem;
+}
+
+/* Track */
+.details::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--color-light--1);
+  border-radius: 0.3rem;
+}
+
+/* Handle */
+.details::-webkit-scrollbar-thumb {
+  background-color: var(--color-light--3);
+  border-radius: 0.3rem;
+}
+
+/* Handle on hover */
+.details::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-light--1);
+}
+
+.detail {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 1.5rem 2.25rem;
+  margin-bottom: 1.75rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+.detail--red {
+  border-left: 5px solid var(--color-red);
+}
+.detail--yellow {
+  border-left: 5px solid var(--color-yellow);
+}
+.detail--green {
+  border-left: 5px solid var(--color-green);
+}
+
+.detail__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  grid-column: 1 / -1;
+}
+
+.tennant_image {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.form__label {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.form__input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 4rem;
+  font-family: inherit;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: var(--color-light--3);
+  transition: all 0.2s;
+}
+
+.copyright {
+  margin-top: auto;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--color-light--1);
+}
+
+/* MAP */
+#map {
+  flex: 1;
+  min-height: 50vh;
+  background-color: var(--color-light--1);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.btn_change_map_style {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  padding: 2rem 3rem;
+  border-radius: 0.3rem;
+  z-index: 1000;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.btn_change_map_style:hover {
+  background-color: var(--color-dark--2);
+}
+
+/* Modal overlay */
+.modal-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Ensures it's above other content */
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: var(--color-dark--1);
+  padding: 2rem;
+  width: 80%;
+  max-width: 50rem;
+  max-height: 80vh; /* Limits height to 80% of viewport */
+  overflow-y: auto; /* Enables vertical scrolling */
+  border-radius: 0.3rem;
+  position: relative;
+}
+
+/* width */
+.modal-content::-webkit-scrollbar {
+  width: 1rem;
+}
+
+/* Track */
+.modal-content::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--color-light--1);
+  border-radius: 0.3rem;
+}
+
+/* Handle */
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: var(--color-light--3);
+  border-radius: 0.3rem;
+}
+
+/* Handle on hover */
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-light--1);
+}
+
+.modal-title {
+  text-align: center;
+  color: var(--color-light--2);
+  font-size: 3rem;
+  margin-bottom: 4rem;
+}
+
+.modal-subtitle {
+  font-size: 2rem;
+  color: var(--color-light--2);
+  margin-bottom: 2rem;
+}
+
+.modal-img {
+  width: 70%;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  margin-bottom: 4rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.modal-img:hover {
+  box-shadow: 0 8px 16px rgba(214, 222, 224, 1); /* Add shadow */
+}
+
+/* Close button */
+.modal-close-button {
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+  line-height: 1;
+  font-size: 5rem;
+  color: var(--color-light--2);
+  cursor: pointer;
+}
+
+/* Popup width is defined in JS using options */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.5rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-dark--1);
+}
+
+.red-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-red);
+}
+.yellow-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-yellow);
+}
+.green-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-green);
+}
+
+/* Responsive layout for tablet screen */
+@media (max-width: 1200px) {
+  html {
+    font-size: 56.25%; /* 1rem = 9px (16px * 0.5625 = 9px) */
+  }
+
+  body {
+    flex-direction: column-reverse;
+    padding: 1rem;
+  }
+
+  .sidebar {
+    flex-basis: auto;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  #map {
+    min-height: 70vh;
+    width: 100%;
+  }
+
+  .form__label {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem; /* Slightly larger font */
+  }
+
+  .form__input {
+    width: 100%; /* Full width */
+  }
+
+  .details {
+    height: 50rem;
+  }
+
+  .modal-title {
+    font-size: 2.5rem;
+  }
+
+  .modal-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+/* Even smaller screens, like mobile phones */
+@media (max-width: 480px) {
+  html {
+    font-size: 50%; /* 1rem = 8px (16px * 0.5 = 8px) */
+  }
+
+  .sidebar {
+    padding: 1.5rem;
+  }
+
+  .logo {
+    height: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .form__label {
+    font-size: 1.2rem; /* Smaller font for mobile */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form__input {
+    font-size: 1.2rem; /* Adjusted font size */
+  }
+
+  #map {
+    min-height: 50vh;
+  }
+
+  .modal-title {
+    font-size: 2rem;
+  }
+
+  .modal-subtitle {
+    font-size: 1rem;
+  }
+}
